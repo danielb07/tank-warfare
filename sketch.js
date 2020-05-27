@@ -1,40 +1,50 @@
 
-// CREATE GLOBAL VARIABLES
-// For Engine, World, Bodies and any other that you have in mind to make your coding life easier.
-// remember to create an array of boxes.
 
  
 var engine;
 var world;
 var box
- 
-var wall;
+let walls
+var leftEdge = 376;
+var rightEdge = 396;
+var bottomEdge = 300;
+var topEdge = 1100;
 var gSlider;
 
 function setup() {
     createCanvas(displayWidth,displayHeight);
-    wall = new Wall(displayWidth/2,displayHeight/2+190,displayWidth,20);
-     cannonBall = new CannonBall(displayWidth/2,displayHeight/2);
+    
+    
+
+    walls = new Walls();
+
+    cannonBall = new CannonBall(493, 770);
     //  824, 285,100,10
-
-    
-
 }
- 
 
-    
-        
-       
-       
-
- 
 function draw() {
    
-    // Draw all the elements including the slider that 
     background(200);
-    wall.display();
-    cannonBall.display();
+
+    
+    walls.display();
+    walls.collision();
+    // cannonBall.display();
+    var wall = walls.walls[0];
+
+    if(cannonBall.x < (wall.x + (wall.w/2)) &&
+            cannonBall.x > (wall.x - (wall.w/2)) &&
+            cannonBall.y > (wall.y - (wall.h/2)) && 
+            cannonBall.y < (wall.y + (wall.h/2))){
+        console.log("yay");
+    }
+        
 }
 function mousePressed(){
-    console.log(mouseX + ", " + mouseY)
+    // console.clear
+    // 386, 700,20,400
+    // x  , y  ,w, h
+   console.log(mouseX +", "+mouseY);
+   
+    
 }

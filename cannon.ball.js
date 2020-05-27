@@ -12,7 +12,7 @@ class CannonBall {
         // the radius of the ellipse is fixed to 10
         // this could be changed later
 
-        this.x += 1 * this.speed;
+        this.x -= 0 * this.speed;
         this.y -= 1 * this.speed;
 
         ellipseMode(CENTER);
