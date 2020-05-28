@@ -6,7 +6,10 @@ class Walls {
         // this.walls.push(new Wall(1418, 131,390,20))
         
 
-        this.walls.push(new Wall(513, 435,60,250))
+        this.walls.push(new Wall(512, 432,60,250))
+        this.walls.push(new Wall(116 , 488,60,250))
+        this.walls.push(new Wall(316, 728,250,60))
+        this.walls.push(new Wall(330, 300,250,60))
          
     }
     display(){
@@ -17,17 +20,5 @@ class Walls {
             
         }
     }
-    collision(){
-        // for(var i=0; i<this.walls.length; i++){
-            var wall = this.walls[0]
-            // console.log(cannonBall.x);
-            
-            if(cannonBall.x === 386 ){
-                console.log("collision");
-                
-            }
-           
-        // }
-    }
-
+    
 }
