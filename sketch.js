@@ -1,17 +1,8 @@
 
 
 var cannonBall;
-var cannonBall2;
-var engine;
-var world;
-var box
-let walls
-var leftEdge = 376;
-var rightEdge = 396;
-var bottomEdge = 300;
-var topEdge = 1100;
-var gSlider;
-
+var tank;
+let wall;
 
 function setup() {
     createCanvas(displayWidth,displayHeight);
@@ -20,12 +11,13 @@ function setup() {
 
     walls = new Walls();
 
+    tank = new Tank(512, 604,20,20);
 
     // // top border
     // cannonBall = new CannonBall(438, 218, 3, 3);
 
     // // bottom border
-    cannonBall = new CannonBall(638, 678,-2, -2)
+    cannonBall = new CannonBall(638, 678,-4, -4)
 
     // left border
     // cannonBall= new CannonBall(317, 594, 3, -3)
@@ -46,8 +38,14 @@ function draw() {
     // frameRate(120000);
     
     walls.display();
+
     cannonBall.display();
-    cannonBall.bounceOff();
+    cannonBall.bounceOff() 
+
+    tank.display();
+    tank.movement();
+    tank.collision();
+    
 }
 
 function mousePressed(){
@@ -60,11 +58,24 @@ function mousePressed(){
     
 }
 
-function moveMent(){
-    var xdir = cannonBall.xdir;
-    var ydir = cannonBall.ydir;
+// function moveMent(){
 
-  
+//     switch(keyCode) {
+//         case 87:
+//         tank.moveMent(0,-2);
+//           break;
+//         case 83:
+//             tank.moveMent(0,2);
+//           break;
+//         case 65:
+//             tank.moveMent(-2,0);
+//           break;
+//           case 68:
+//             tank.moveMent(2,0);
+//           break;
+//         default:
+//             tank.moveMent(0,0);
+//       }
 
-}
+// }
 
