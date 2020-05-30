@@ -11,13 +11,13 @@ function setup() {
 
     walls = new Walls();
 
-    tank = new Tank(512, 604,20,20);
-
+    tank = new Tank(400, 394,20,20);
+    cannonBall = new CannonBall();
     // // top border
     // cannonBall = new CannonBall(438, 218, 3, 3);
 
     // // bottom border
-    cannonBall = new CannonBall(638, 678,-4, -4)
+   
 
     // left border
     // cannonBall= new CannonBall(317, 594, 3, -3)
@@ -39,12 +39,21 @@ function draw() {
     
     walls.display();
 
-    cannonBall.display();
-    cannonBall.bounceOff() 
+   
 
     tank.display();
     tank.movement();
     tank.collision();
+
+    if(keyIsDown(32)){
+        cannonBall.x = tank.x;
+        cannonBall.y = tank.y;
+        cannonBall.speed = 2;
+        cannonBall.xdir =0;
+        cannonBall.ydir = -1;
+    }
+    cannonBall.display();
+    cannonBall.bounceOff() 
     
 }
 
@@ -54,28 +63,4 @@ function mousePressed(){
     // x  , y  ,w, h
    console.log(mouseX +", "+mouseY);
    
-   
-    
 }
-
-// function moveMent(){
-
-//     switch(keyCode) {
-//         case 87:
-//         tank.moveMent(0,-2);
-//           break;
-//         case 83:
-//             tank.moveMent(0,2);
-//           break;
-//         case 65:
-//             tank.moveMent(-2,0);
-//           break;
-//           case 68:
-//             tank.moveMent(2,0);
-//           break;
-//         default:
-//             tank.moveMent(0,0);
-//       }
-
-// }
-

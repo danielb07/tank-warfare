@@ -33,9 +33,9 @@ class Tank {
 
     }
     display(){
-        rectMode(CENTER);
+        ellipseMode(CENTER);
         fill("black");
-        rect(this.x,this.y,this.h,this.w);
+        ellipse(this.x,this.y,this.h,this.w);
     }
     collision(){
         for(var i=0; i <walls.walls.length;i++ ){
