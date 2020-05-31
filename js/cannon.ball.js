@@ -25,6 +25,8 @@ class CannonBall {
             this.distance = undefined;
             this.x = displayWidth+20;
             this.y = displayHeight/2;
+            this.xdir = 0;
+            this.ydir = 0;
         }
     }
 

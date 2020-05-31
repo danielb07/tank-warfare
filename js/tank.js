@@ -12,33 +12,89 @@ class Tank {
          this.xdir = 0;
         this.ydir = 0;
         this.bounceOff = 1;
-        this.speed = 1;
+        this.speed = 2;
         
        
     }
     fire(){
-        cannonBall.x = tank.x;
-        cannonBall.y = tank.y;
-        cannonBall.speed = 2;
-        cannonBall.xdir = 2;
-        cannonBall.ydir = 0;
-        cannonBall.distance = 0;
-    }
-    movement(){
- 
-        // this.x += this.xdir  ;
-        // this.y += this.ydir ;
-        if (keyIsDown(DOWN_ARROW) || keyIsDown(this.DOWNKEY)) {
-            this.y += this.speed;
-        } else if (keyIsDown(UP_ARROW)|| keyIsDown(this.UPKEY)) {
-            this.y -= this.speed;
-        } else if(keyIsDown(LEFT_ARROW)|| keyIsDown(this.LEFTKEY)){
-            this.x -= this.speed;
-        } else if(keyIsDown(RIGHT_ARROW)|| keyIsDown(this.RIGHTKEY)){
-            this.x += this.speed;
+        if(turret.angle === null || turret.angle === -1 ){
+        cannonBall.x = turret.x+4;
+        cannonBall.y = turret.y;
         }
 
+        else if(turret.angle === 2 || turret.angle ===-2 ){
+            cannonBall.x = turret.x;
+            cannonBall.y = turret.y+4.5;
+        }
+        else if(turret.angle === 2   || turret.angle ===-2 ){
+            cannonBall.x = turret.x;
+            cannonBall.y = turret.y+4.5;
+        }
+        cannonBall.speed = 1;
+       
+        cannonBall.distance = 0;
+        if(turret.angle === -1){
+            cannonBall.xdir = -2;
+            cannonBall.ydir = 0;
+        }
+
+        else if(turret.angle === null){
+            cannonBall.xdir = 2;
+            cannonBall.ydir = 0;
+        }
+
+        else if(turret.angle === 2){
+            cannonBall.xdir = 0;
+            cannonBall.ydir = 2;
+        }
+
+        else if(turret.angle === -2){
+            cannonBall.xdir = 0;
+            cannonBall.ydir = -2;
+        }
+
+        else if(turret.angle === 4){
+            cannonBall.xdir = 2;
+            cannonBall.ydir = 2;
+        }
+
+        else if(turret.angle === 4/3){
+            cannonBall.xdir = -2;
+            cannonBall.ydir = 2;
+        }
+
+        else if(turret.angle === -4/3){
+            cannonBall.xdir = -2;
+            cannonBall.ydir = -2;
+        }
+
+        else if(turret.angle === -4){
+            cannonBall.xdir = 2;
+            cannonBall.ydir = -2;
+        }
     }
+
+    updateMovement(){
+        // if(position !== undefined){
+            log("asdfasdf")
+        if (keyIsDown(DOWN_ARROW) || keyIsDown(this.DOWNKEY)) {
+            console.log(0, 1);
+            
+            writePosition(0,1);
+            // this.y += this.speed;
+        } else if (keyIsDown(UP_ARROW)|| keyIsDown(this.UPKEY)) {
+            writePosition(0,-1)
+        } else if(keyIsDown(LEFT_ARROW)|| keyIsDown(this.LEFTKEY)){
+            writePosition(-1,0)
+            // this.x -= this.speed;
+        } else if(keyIsDown(RIGHT_ARROW)|| keyIsDown(this.RIGHTKEY)){
+            writePosition(1,0)
+            // this.x += this.speed;
+        }
+        // }
+    }
+
+   
     display(){
         push();
         ellipseMode(CENTER);
