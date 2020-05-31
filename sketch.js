@@ -3,58 +3,34 @@
 var cannonBall;
 var tank;
 let wall;
+let turrent;
 
 function setup() {
     createCanvas(displayWidth,displayHeight);
     
-    
+    // turrent = new Turrent(displayWidth/2,displayHeight/2, 60, 10)
 
     walls = new Walls();
 
-    tank = new Tank(400, 394,20,20);
+    tank = new Tank(330, 436,20,20);
     cannonBall = new CannonBall();
-    // // top border
-    // cannonBall = new CannonBall(438, 218, 3, 3);
-
-    // // bottom border
-   
-
-    // left border
-    // cannonBall= new CannonBall(317, 594, 3, -3)
-
-    // right border
-    //   cannonBall = new CannonBall(704, 279, -2,2)
-
-    //middle 
-    // cannonBall = new CannonBall(displayWidth/2, displayHeight/2,-2,0);
-
-    // frameRate(1000)
 }
 
 function draw() {
    
     background(200);
 
-    // frameRate(120000);
-    
     walls.display();
-
-   
-
-    tank.display();
-    tank.movement();
-    tank.collision();
-
-    if(keyIsDown(32)){
-        cannonBall.x = tank.x;
-        cannonBall.y = tank.y;
-        cannonBall.speed = 2;
-        cannonBall.xdir =0;
-        cannonBall.ydir = -1;
+    
+    if(keyIsDown(32) && (Number.isNaN(cannonBall.distance))){
+        tank.fire();
     }
     cannonBall.display();
     cannonBall.bounceOff() 
     
+    tank.display();
+    tank.movement();
+    tank.collision();
 }
 
 function mousePressed(){
@@ -64,3 +40,5 @@ function mousePressed(){
    console.log(mouseX +", "+mouseY);
    
 }
+
+

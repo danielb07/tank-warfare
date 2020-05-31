@@ -7,7 +7,7 @@ class Walls {
         
 
         this.walls.push(new Wall(512, 432,60,250))
-        // this.walls.push(new Wall(116,488,60,250))
+        this.walls.push(new Wall(116,488,60,250))
         // this.walls.push(new Wall(316, 728, 250, 60))
         // this.walls.push(new Wall(330, 300, 250, 60))
          

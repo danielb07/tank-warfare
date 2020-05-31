@@ -1,23 +1,31 @@
 class CannonBall {
     constructor(){
-        this.speed = 0;
+        this.speed = 1;
+        this.distance;
+        this.x = displayWidth+20;
+        this.y = displayHeight/2;
+        
     }
 
     display(){
         fill("red");
+        
         // the radius of the ellipse is fixed to 10
         // this could be changed later
-
-       
-        // console.log(this.x);
-        
-
         ellipseMode(CENTER);
         ellipse(this.x,this.y,10)
 
         this.x += this.xdir * this.speed;
         this.y += this.ydir * this.speed;
 
+        this.distance += 2
+
+        if(this.distance > 250){
+            console.log("at last");
+            this.distance = undefined;
+            this.x = displayWidth+20;
+            this.y = displayHeight/2;
+        }
     }
 
     bounceOff () {
@@ -39,8 +47,6 @@ class CannonBall {
                     this.xdir = -(xdir)
                 }
                 else if(this.x === (wall.x + (wall.w/2)) && this.y > (wall.y-(wall.h/2)) && this.y < (wall.y+(wall.h/2))  ){
-                    console.log("heere");
-                    
                     this.xdir = -(xdir);
                 }
                 if(this.y === (wall.y - (wall.h/2)) && this.x > (wall.x-(wall.w/2)) && this.x < (wall.x+(wall.w/2))  ){
@@ -54,8 +60,7 @@ class CannonBall {
                 // if(this.y > (wall.y - (wall.h/2))  || this.y > wall.y + (wall.h/2) ){
                 //     this.ydir = -(ydir)
                 // }
-            }
-            if(xdir > 0 && ydir > 0){
+            } else if(xdir > 0 && ydir > 0){
                 if (this.x > (wall.x - (wall.w/2))  && this.x < wall.x + (wall.w/2) && this.y === wall.y- (wall.h/2)){
                     this.ydir = -(ydir);
                     
@@ -92,25 +97,5 @@ class CannonBall {
                 
             }
         }
-            
-
-
-
-
-            // 
-            
-
-            
-            
-            // if(xdir>0 && ydir>0){
-            //     this.xdir = -(xdir);
-            // }
-           
-                // if(xdir>0 && ydir>0){
-                //     this.ydir = -ydir;
-                // }
-            
-
-           
     }
 }

@@ -13,9 +13,16 @@ class Tank {
         this.ydir = 0;
         this.bounceOff = 1;
         this.speed = 1;
-        console.log(keyCode);
         
        
+    }
+    fire(){
+        cannonBall.x = tank.x;
+        cannonBall.y = tank.y;
+        cannonBall.speed = 2;
+        cannonBall.xdir = 2;
+        cannonBall.ydir = 0;
+        cannonBall.distance = 0;
     }
     movement(){
  
@@ -33,17 +40,17 @@ class Tank {
 
     }
     display(){
+        push();
         ellipseMode(CENTER);
         fill("black");
+        tint(255,0)
         ellipse(this.x,this.y,this.h,this.w);
+        pop();
     }
     collision(){
         for(var i=0; i <walls.walls.length;i++ ){
             var wall = walls.walls[i];
 
-            // console.log(this.x,this.y );
-            
-            
             if(this.x - this.w/2 === wall.x + (wall.w/2) && this.y >wall.y- (wall.h/2) && this.y < wall.y+ (wall.h/2)){  // right wall
                 this.x += this.bounceOff;
                 
