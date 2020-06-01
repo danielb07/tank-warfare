@@ -4,9 +4,8 @@ class Tank {
     LEFTKEY = 65;
     RIGHTKEY = 68
 
-    constructor(x,y,h,w){
-        this.x = x;
-        this.y = y;
+    constructor(h,w){
+
         this.h = h;
         this.w = w;
          this.xdir = 0;
@@ -17,81 +16,93 @@ class Tank {
        
     }
     fire(){
-        if(turret.angle === null || turret.angle === -1 ){
-        cannonBall.x = turret.x+4;
-        cannonBall.y = turret.y;
-        }
-
-        else if(turret.angle === 2 || turret.angle ===-2 ){
-            cannonBall.x = turret.x;
-            cannonBall.y = turret.y+4.5;
-        }
-        else if(turret.angle === 2   || turret.angle ===-2 ){
-            cannonBall.x = turret.x;
-            cannonBall.y = turret.y+4.5;
-        }
         cannonBall.speed = 1;
-       
         cannonBall.distance = 0;
         if(turret.angle === -1){
+            cannonBall.x = turret.x+4;
+            cannonBall.y = turret.y;
             cannonBall.xdir = -2;
             cannonBall.ydir = 0;
+            
+            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
         }
 
         else if(turret.angle === null){
+            cannonBall.x = turret.x+4;
+            cannonBall.y = turret.y;
             cannonBall.xdir = 2;
             cannonBall.ydir = 0;
+            
+            
+            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
         }
 
         else if(turret.angle === 2){
+            cannonBall.x = turret.x;
+            cannonBall.y = turret.y+4.5;
             cannonBall.xdir = 0;
             cannonBall.ydir = 2;
+            
+            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
+            // writeCannonBallPosition(turret.x, turret.y+4.5)
         }
 
         else if(turret.angle === -2){
+            cannonBall.x = turret.x;
+            cannonBall.y = turret.y+4.5;
             cannonBall.xdir = 0;
             cannonBall.ydir = -2;
+            
+            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
         }
 
         else if(turret.angle === 4){
+            cannonBall.x = turret.x;
+            cannonBall.y = turret.y;
             cannonBall.xdir = 2;
             cannonBall.ydir = 2;
+            
+            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
         }
 
         else if(turret.angle === 4/3){
+            cannonBall.x = turret.x;
+            cannonBall.y = turret.y;
             cannonBall.xdir = -2;
             cannonBall.ydir = 2;
+         
+            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
         }
 
         else if(turret.angle === -4/3){
+            cannonBall.x = turret.x;
+            cannonBall.y = turret.y;
             cannonBall.xdir = -2;
             cannonBall.ydir = -2;
+            
+            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
         }
 
         else if(turret.angle === -4){
+            cannonBall.x = turret.x;
+            cannonBall.y = turret.y;
             cannonBall.xdir = 2;
             cannonBall.ydir = -2;
+            
+            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
         }
     }
 
     updateMovement(){
-        // if(position !== undefined){
-            log("asdfasdf")
         if (keyIsDown(DOWN_ARROW) || keyIsDown(this.DOWNKEY)) {
-            console.log(0, 1);
-            
-            writePosition(0,1);
-            // this.y += this.speed;
+            writeTankPosition(0,1);
         } else if (keyIsDown(UP_ARROW)|| keyIsDown(this.UPKEY)) {
-            writePosition(0,-1)
+            writeTankPosition(0,-1)
         } else if(keyIsDown(LEFT_ARROW)|| keyIsDown(this.LEFTKEY)){
-            writePosition(-1,0)
-            // this.x -= this.speed;
+            writeTankPosition(-1,0)
         } else if(keyIsDown(RIGHT_ARROW)|| keyIsDown(this.RIGHTKEY)){
-            writePosition(1,0)
-            // this.x += this.speed;
+            writeTankPosition(1,0)
         }
-        // }
     }
 
    
@@ -99,7 +110,6 @@ class Tank {
         push();
         ellipseMode(CENTER);
         fill("black");
-        tint(255,0)
         ellipse(this.x,this.y,this.h,this.w);
         pop();
     }
