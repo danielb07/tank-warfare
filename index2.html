@@ -1,0 +1,75 @@
+<!DOCTYPE html><html>
+    <head>
+      
+    <meta charset="utf-8">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDi-_oDjbeh8tx4_tJ0HlUGff4D3Co2AcM",
+    authDomain: "tank-warfare.firebaseapp.com",
+    databaseURL: "https://tank-warfare.firebaseio.com",
+    projectId: "tank-warfare",
+    storageBucket: "tank-warfare.appspot.com",
+    messagingSenderId: "296002084203",
+    appId: "1:296002084203:web:9c98563991fcea59b5002e"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+  </head>
+  <body>
+    <script src="sketch.js"></script>
+    <script>
+      Firebase();
+      function Firebase(){
+        database = firebase.database();
+        database.ref('/').set({
+            playerCount : 0,
+            player1 : null,
+            player2 : null,
+            gamestate : 0 
+        })
+        database.ref('player1').set({
+            gamestate : 0
+        })
+
+        database.ref('player1/tank/position').set({
+          x : 316,
+          y : 432
+        })
+        database.ref('player1/tank/cannonball/position').set({
+            'x' : 10,
+            'y' : 2
+        })
+        database.ref('player1/tank/turret').set({
+            'angle' : 0
+        })
+
+        database.ref('player2').set({
+            gamestate : 0
+        })
+
+        database.ref('player2/tank/position').set({
+          x : 500,
+          y : 500
+        })
+        
+        database.ref('player2/tank/cannonball/position').set({
+            'x' : 10,
+            'y' : 2
+        })
+        database.ref('player2/tank/turret').set({
+            'angle' : null
+        })
+    }      
+    </script>
+    <h1>all clear</h1>
+  </body>
+</html>

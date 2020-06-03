@@ -4,7 +4,7 @@ class Tank {
     LEFTKEY = 65;
     RIGHTKEY = 68
 
-    constructor(h,w){
+    constructor(x,y,h,w){
 
         this.h = h;
         this.w = w;
@@ -12,6 +12,8 @@ class Tank {
         this.ydir = 0;
         this.bounceOff = 1;
         this.speed = 2;
+        this.x = x;
+        this.y = y;
         
        
     }
