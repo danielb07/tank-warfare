@@ -4,7 +4,7 @@ class Tank {
     LEFTKEY = 65;
     RIGHTKEY = 68
 
-    constructor(x,y,h,w){
+    constructor(x,y,h,w,c){
 
         this.h = h;
         this.w = w;
@@ -14,84 +14,84 @@ class Tank {
         this.speed = 2;
         this.x = x;
         this.y = y;
+        this.sprite = c;
         
        
     }
     fire(){
-        cannonBall.speed = 1;
-        cannonBall.distance = 0;
-        if(turret.angle === -1){
-            cannonBall.x = turret.x+4;
-            cannonBall.y = turret.y;
-            cannonBall.xdir = -2;
-            cannonBall.ydir = 0;
+        tankCannonBall.speed = 1;
+        tankCannonBall.distance = 0;
+        if(tankTurret.angle === -1){
+            tankCannonBall.x = tankTurret.x+4;
+            tankCannonBall.y = tankTurret.y;
+            tankCannonBall.xdir = -2;
+            tankCannonBall.ydir = 0;
             
-            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
+            writeCannonBallPosition(tankCannonBall.xdir,tankCannonBall.ydir)
         }
 
-        else if(turret.angle === null){
-            cannonBall.x = turret.x+4;
-            cannonBall.y = turret.y;
-            cannonBall.xdir = 2;
-            cannonBall.ydir = 0;
+        else if(tankTurret.angle === null){
+            tankCannonBall.x = tankTurret.x+4;
+            tankCannonBall.y = tankTurret.y;
+            tankCannonBall.xdir = 2;
+            tankCannonBall.ydir = 0;
             
             
-            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
+            writeCannonBallPosition(tankCannonBall.xdir,tankCannonBall.ydir)
         }
 
-        else if(turret.angle === 2){
-            cannonBall.x = turret.x;
-            cannonBall.y = turret.y+4.5;
-            cannonBall.xdir = 0;
-            cannonBall.ydir = 2;
+        else if(tankTurret.angle === 2){
+            tankCannonBall.x = tankTurret.x;
+            tankCannonBall.y = tankTurret.y+4.5;
+            tankCannonBall.xdir = 0;
+            tankCannonBall.ydir = 2;
             
-            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
-            // writeCannonBallPosition(turret.x, turret.y+4.5)
+            writeCannonBallPosition(tankCannonBall.xdir,tankCannonBall.ydir)
         }
 
-        else if(turret.angle === -2){
-            cannonBall.x = turret.x;
-            cannonBall.y = turret.y+4.5;
-            cannonBall.xdir = 0;
-            cannonBall.ydir = -2;
+        else if(tankTurret.angle === -2){
+            tankCannonBall.x = tankTurret.x;
+            tankCannonBall.y = tankTurret.y+4.5;
+            tankCannonBall.xdir = 0;
+            tankCannonBall.ydir = -2;
             
-            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
+            writeCannonBallPosition(tankCannonBall.xdir,tankCannonBall.ydir)
         }
 
-        else if(turret.angle === 4){
-            cannonBall.x = turret.x;
-            cannonBall.y = turret.y;
-            cannonBall.xdir = 2;
-            cannonBall.ydir = 2;
+        else if(tankTurret.angle === 4){
+            tankCannonBall.x = tankTurret.x;
+            tankCannonBall.y = tankTurret.y;
+            tankCannonBall.xdir = 2;
+            tankCannonBall.ydir = 2;
             
-            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
+            writeCannonBallPosition(tankCannonBall.xdir,tankCannonBall.ydir)
         }
 
-        else if(turret.angle === 4/3){
-            cannonBall.x = turret.x;
-            cannonBall.y = turret.y;
-            cannonBall.xdir = -2;
-            cannonBall.ydir = 2;
+        else if(tankTurret.angle === 4/3){
+            tankCannonBall.x = tankTurret.x;
+            tankCannonBall.y = tankTurret.y;
+            tankCannonBall.xdir = -2;
+            tankCannonBall.ydir = 2;
          
-            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
+            writeCannonBallPosition(tankCannonBall.xdir,tankCannonBall.ydir)
         }
 
-        else if(turret.angle === -4/3){
-            cannonBall.x = turret.x;
-            cannonBall.y = turret.y;
-            cannonBall.xdir = -2;
-            cannonBall.ydir = -2;
+        else if(tankTurret.angle === -4/3){
+            tankCannonBall.x = tankTurret.x;
+            tankCannonBall.y = tankTurret.y;
+            tankCannonBall.xdir = -2;
+            tankCannonBall.ydir = -2;
             
-            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
+            writeCannonBallPosition(tankCannonBall.xdir,tankCannonBall.ydir)
         }
 
-        else if(turret.angle === -4){
-            cannonBall.x = turret.x;
-            cannonBall.y = turret.y;
-            cannonBall.xdir = 2;
-            cannonBall.ydir = -2;
+        else if(tankTurret.angle === -4){
+            tankCannonBall.x = tankTurret.x;
+            tankCannonBall.y = tankTurret.y;
+            tankCannonBall.xdir = 2;
+            tankCannonBall.ydir = -2;
             
-            writeCannonBallPosition(cannonBall.xdir,cannonBall.ydir)
+            writeCannonBallPosition(tankCannonBall.xdir,tankCannonBall.ydir)
         }
     }
 
@@ -111,7 +111,7 @@ class Tank {
     display(){
         push();
         ellipseMode(CENTER);
-        fill("black");
+        fill(this.sprite);
         ellipse(this.x,this.y,this.h,this.w);
         pop();
     }

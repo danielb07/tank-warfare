@@ -26,6 +26,11 @@ class Form {
             playerCountRef.once("value", (data)=>{
                 var playerCount = data.val() + 1;
                 player.index = playerCount;
+
+                database.ref('player' + player.index + '/health').once("value", (data)=>{
+                    player.health = data.val();
+                })
+                        
                 
                 database.ref('player' + player.index).update({
                     name : name,

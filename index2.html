@@ -37,36 +37,42 @@
             gamestate : 0 
         })
         database.ref('player1').set({
-            gamestate : 0
+            gamestate : 0,
+            health : 6
         })
+
+
 
         database.ref('player1/tank/position').set({
           x : 316,
           y : 432
         })
         database.ref('player1/tank/cannonball/position').set({
-            'x' : 10,
-            'y' : 2
+            x : 10,
+            y: 2
         })
         database.ref('player1/tank/turret').set({
-            'angle' : 0
+            angle : 2
         })
+        
+        
+
 
         database.ref('player2').set({
-            gamestate : 0
+            gamestate : 0,
+            health : 6
         })
 
         database.ref('player2/tank/position').set({
           x : 500,
           y : 500
-        })
-        
+        })        
         database.ref('player2/tank/cannonball/position').set({
-            'x' : 10,
-            'y' : 2
+            x : 10,
+            y : 2
         })
         database.ref('player2/tank/turret').set({
-            'angle' : null
+            angle : -2
         })
     }      
     </script>

@@ -5,8 +5,6 @@ class Waiting {
     }
 
     display(){
-        console.log("wait");
-        
         this.Wait = createElement('h2');
         this.Wait.html('get ready soldier')
         this.Wait.position(724, 376)
