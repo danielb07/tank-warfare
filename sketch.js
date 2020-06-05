@@ -256,22 +256,23 @@ emenyturretAngle = (data) =>{
 }
 
 shake = () =>{
-    console.log("start");
+    // console.log("start");
     
-    console.log(tankCannonBall.x)
-    console.log(enemy.x)
-    console.log(enemy.w/2)
-    console.log(tankCannonBall.y)
-    console.log(enemy.y)
-    console.log(enemy.h/2)
-    console.log("end");
+    // console.log(tankCannonBall.x)
+    // console.log(enemy.x)
+    // console.log(enemy.w/2)
+    // console.log(tankCannonBall.y)
+    // console.log(enemy.y)
+    // console.log(enemy.h/2)
+    // console.log("end");
     
     
     
     
     if(tankCannonBall.x > enemy.x - enemy.r/2 && tankCannonBall.x < enemy.x + enemy.r/2 && tankCannonBall.y > enemy.y - enemy.r/2 && tankCannonBall.y < enemy.y + enemy.r/2){        
         healthLoss(1);
-        console.log("uhhhhhh");
+        console.log(player.health);
+        
         
         tankCannonBall.distance = 250
         writeCannonBallPosition(displayWidth+20, displayHeight/2);
