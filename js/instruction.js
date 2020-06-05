@@ -58,7 +58,7 @@ class Instruction {
         var ready = createButton('PREPARE');
         ready.position(displayWidth/2,858)
 
-        ready.mousePressed(function(){
+        ready.mousePressed(()=>{
             W.hide();
             S.hide();
             A.hide();
