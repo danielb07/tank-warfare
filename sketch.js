@@ -15,7 +15,7 @@ let battlestate
 
 
 preload = () =>{
-    bg = loadImage('tank.jpg')
+    // bg = loadImage('tank.jpg')
 }
 
  setup = () => {
@@ -56,10 +56,10 @@ preload = () =>{
                     if(player.index === 1){
                         
                         
-                        tank = new Tank(51, 865,25,25,"blue");
+                        tank = new Tank(52, 864,40,"blue");
                         
                         
-                        enemy = new Tank(1143, 276,25,25, "#B80909")
+                        enemy = new Tank(1142, 276,40, "#B80909")
                         
                         tankPositionRef = database.ref('player1/tank/position');
                         tankPositionRef.on("value", tankMovement);
@@ -81,9 +81,9 @@ preload = () =>{
 
                     } else if(player.index === 2){
                         
-                        tank = new Tank(1143,276,25,25,"#0924B8")
+                        tank = new Tank(1142, 276,40, "#0924B8")
                         
-                        enemy = new Tank(51,865,25,25,"#B80909")
+                        enemy = new Tank(52, 864,40,"#B80909")
                        
                         tankPositionRef = database.ref('player2/tank/position');
                         tankPositionRef.on("value", tankMovement);
@@ -123,7 +123,8 @@ preload = () =>{
 
 draw = () => {
 
-    background(200);
+    background('#645F55');
+    
    
     
     if(battlestate === 2 ){
@@ -150,7 +151,8 @@ gamePlay = () => {
     tankTurret.aiming();
     
     tank.display();
-    tank.updateMovement()
+    tank.updateMovement();
+    
     tank.collision();
 
     enemyTurret.display();
@@ -192,7 +194,6 @@ writeTankPosition = (x,y) =>{
 }
 
 healthLoss = (h) =>{
-    console.log(player.health);
     database.ref('player' + player.index).update({
         health : player.health - h
     })
@@ -203,6 +204,9 @@ healthStatus = (data) =>{
     var health = data.val();
     player.health = health;
     if(player.health === 0){
+
+        battlestate = 3
+
         database.ref('/').update({
             gamestate : 3
         })
@@ -252,9 +256,23 @@ emenyturretAngle = (data) =>{
 }
 
 shake = () =>{
+    console.log("start");
     
-    if(tankCannonBall.x > enemy.x - enemy.w/2 && tankCannonBall.x < enemy.x + enemy.w/2 && tankCannonBall.y > enemy.y - enemy.h/2 && tankCannonBall.y < enemy.y + enemy.h/2){        
+    console.log(tankCannonBall.x)
+    console.log(enemy.x)
+    console.log(enemy.w/2)
+    console.log(tankCannonBall.y)
+    console.log(enemy.y)
+    console.log(enemy.h/2)
+    console.log("end");
+    
+    
+    
+    
+    if(tankCannonBall.x > enemy.x - enemy.r/2 && tankCannonBall.x < enemy.x + enemy.r/2 && tankCannonBall.y > enemy.y - enemy.r/2 && tankCannonBall.y < enemy.y + enemy.r/2){        
         healthLoss(1);
+        console.log("uhhhhhh");
+        
         tankCannonBall.distance = 250
         writeCannonBallPosition(displayWidth+20, displayHeight/2);
     }

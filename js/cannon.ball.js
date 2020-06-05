@@ -15,7 +15,7 @@ class CannonBall {
         // the radius of the ellipse is fixed to 10
         // this could be changed later
         ellipseMode(CENTER);
-        ellipse(this.x,this.y,10);
+        ellipse(this.x,this.y,12);
         pop();
         // console.log(this.x, this.y);
         

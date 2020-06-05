@@ -4,16 +4,15 @@ class Tank {
     LEFTKEY = 65;
     RIGHTKEY = 68
 
-    constructor(x,y,h,w,c){
-
-        this.h = h;
-        this.w = w;
+    constructor(x,y,r,c){
+        this.x = x;
+        this.y = y;
+        this.r = r;
          this.xdir = 0;
         this.ydir = 0;
         this.bounceOff = 1;
         this.speed = 2;
-        this.x = x;
-        this.y = y;
+        
         this.sprite = c;
         
        
@@ -89,7 +88,7 @@ class Tank {
             tankCannonBall.x = tankTurret.x;
             tankCannonBall.y = tankTurret.y;
             tankCannonBall.xdir = 2;
-            tankCannonBall.ydir = -2;
+            tankCannonBall.ydir = -2    ;
             
             writeCannonBallPosition(tankCannonBall.xdir,tankCannonBall.ydir)
         }
@@ -112,24 +111,28 @@ class Tank {
         push();
         ellipseMode(CENTER);
         fill(this.sprite);
-        ellipse(this.x,this.y,this.h,this.w);
+        ellipse(this.x,this.y,this.r);
         pop();
     }
     collision(){
+        // console.log("out");
+        
         for(var i=0; i <walls.walls.length;i++ ){
             var wall = walls.walls[i];
-
-            if(this.x - this.w/2 === wall.x + (wall.w/2) && this.y >wall.y- (wall.h/2) && this.y < wall.y+ (wall.h/2)){  // right wall
-                this.x += this.bounceOff;
+            
+            if(this.x + this.r/2 === wall.x - (wall.w/2) && this.y + this.r/2 > wall.y - (wall.h/2) && this.y - this.r/2 < wall.y + (wall.h/2)){
+                this.x -=2
                 
-            } else if(this.x + this.w/2 === (wall.x - (wall.w/2))   && this.y < wall.y+ (wall.h/2) && this.y > wall.y- (wall.h/2)){ // left wall
-                this.x -= this.bounceOff;
+              }else if(this.x - this.r/2 === wall.x + (wall.w/2) && this.y + this.r/2 > wall.y - (wall.h/2) && this.y - this.r/2 < wall.y + (wall.h/2)){
+                this.x +=2
                 
-            } else if(this.y - this.h/2 === (wall.y + (wall.h/2)) && this.x < wall.x + (wall.w/2) && this.x > (wall.x - (wall.w/2))){  // bottom wall
-                 this.y += this.bounceOff; 
-             } else if(this.y + this.h/2 === (wall.y - (wall.h/2))&& this.x < wall.x + (wall.w/2) && this.x > (wall.x - (wall.w/2))){  // top wall
-                this.y -= this.bounceOff; 
-            }
+              }else if(this.y + this.r/2 === wall.y - (wall.h/2) && this.x + this.r/2 > wall.x - (wall.w/2) && this.x - this.r/2 < wall.x + (wall.w/2)){
+                this.y -=2
+                
+              }else if(this.y - this.r/2 === wall.y + (wall.h/2) && this.x + this.r/2 > wall.x - (wall.w/2) && this.x - this.r/2 < wall.x + (wall.w/2)){
+                this.y +=2
+                
+              }
         }
     }
 }

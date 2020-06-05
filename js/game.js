@@ -28,7 +28,7 @@ class Game {
        var gamestateRef = database.ref('gamestate');
        gamestateRef.on("value", (data) => {
            var gamestate = data.val();
-           if (gamestate === 3){
+           if (battlestate === 3){
                console.log("game over");
                 if(player.index === 1){
                     var player2healthRef = database.ref('player2/health')

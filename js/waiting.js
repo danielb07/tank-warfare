@@ -11,6 +11,9 @@ class Waiting {
         this.waiting = createElement('h3');
         this.waiting.html('waiting for the enemy to comence the war')
         this.waiting.position(633, 416);
+        
+        // this.img = loadIm
+
     }
 
     hide(){
