@@ -12,13 +12,14 @@ let game;
 let wait;
 let player;
 let battlestate
+let hearts = [];
 
 
-preload = () =>{
-    // bg = loadImage('tank.jpg')
-}
+// preload = () =>{
 
- setup = () => {
+// }
+
+ function setup(){
      
     database = firebase.database();
     createCanvas(displayWidth,displayHeight);
@@ -147,6 +148,10 @@ gamePlay = () => {
     tankCannonBall.display();
     tankCannonBall.bounceOff();
 
+    for(var i=0; i< health.length; i++){
+        
+    }
+
     tankTurret.display();
     tankTurret.aiming();
     
@@ -171,16 +176,13 @@ gamePlay = () => {
 }
 
  mousePressed = () =>{
-    // console.clear
-    // 386, 700,20,400
-    // x  , y  ,w, h
-   console.log(mouseX +", "+mouseY);
+   console.log(mouseX + ", " + mouseY);
    
 }
 
 writeTankPosition = (x,y) =>{
     database.ref('player' + player.index + '/tank/position').update({
-        x: tank.x + x * tank.speed,
+        x : tank.x + x * tank.speed,
         y : tank.y + y * tank.speed
 
     })
@@ -188,14 +190,14 @@ writeTankPosition = (x,y) =>{
 
 
  tankMovement = (data) =>{
-    var POSITION = data.val();
-    tank.x = POSITION.x;
-    tank.y = POSITION.y;
+    var position = data.val();
+    tank.x = position.x;
+    tank.y = position.y;
 }
 
-healthLoss = (h) =>{
+healthLoss = (health) =>{
     database.ref('player' + player.index).update({
-        health : player.health - h
+        health : player.health - health
     })
     
 }
