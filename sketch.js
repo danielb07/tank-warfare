@@ -238,11 +238,22 @@ healthLoss = (h) =>{
 enemyhealthStatus = (data) => {
      var health = data.val();
      player.enemyhealth = health;
+     if(player.enemyhealth === 0){
+         
+        console.log(" game over: you win");
+        game.winGame()
+        
+    }
 }
 
 playerhealthStatus = (data) => {
     var health = data.val();
     player.health = health;
+    if(player.health === 0){
+        console.log(" game over: you lose");
+        game.loseGame();
+        
+    }
 }
 
 
@@ -295,6 +306,7 @@ shake = () =>{
         tankCannonBall.distance = 250
         writeCannonBallPosition(displayWidth+20, displayHeight/2);
     }
+    
 }
 
  
