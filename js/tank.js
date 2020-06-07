@@ -8,7 +8,7 @@ class Tank {
         this.x = x;
         this.y = y;
         this.r = r;
-         this.xdir = 0;
+        this.xdir = 0;
         this.ydir = 0;
         this.bounceOff = 1;
         this.speed = 2;
@@ -131,8 +131,37 @@ class Tank {
                 
               }else if(this.y - this.r/2 === wall.y + (wall.h/2) && this.x + this.r/2 > wall.x - (wall.w/2) && this.x - this.r/2 < wall.x + (wall.w/2)){
                 this.y +=2
-                
               }
         }
     }
+    healthBoost(){
+       
+            
+
+            if(this.x + this.r/2 > bandage.x - (bandage.s/2) && this.y + this.r/2 > bandage.y - (bandage.s/2) && this.y - this.r/2 < bandage.y + (bandage.s/2)){
+                healthGain(1);
+                database.ref('/').update({
+                    randomPos : [1615, 0]
+                })
+        
+            }else if(this.x - this.r/2 > bandage.x + (bandage.s/2) && this.y + this.r/2 > bandage.y - (bandage.s/2) && this.y - this.r/2 < bandage.y + (bandage.s/2)){
+                healthGain(1);
+                database.ref('/').update({
+                    randomPos : [1615, 0]
+                })
+            }else if(this.y + this.r/2 > bandage.y - (bandage.s/2) && this.x + this.r/2 > bandage.x - (bandage.s/2) && this.x - this.r/2 < bandage.x + (bandage.s/2)){
+                bandage.x = 1615
+                healthGain(1);
+                database.ref('/').update({
+                    randomPos : [1615, 0]
+                })
+            }else if(this.y - this.r/2 > bandage.y + (bandage.s/2) && this.x + this.r/2 > bandage.x - (bandage.s/2) && this.x - this.r/2 < bandage.x + (bandage.s/2)){
+                bandage.x = 1615
+                healthGain(1);
+                database.ref('/').update({
+                    randomPos : [1615, 0]
+                })
+            }
+
+        }
 }

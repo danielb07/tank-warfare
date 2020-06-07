@@ -30,48 +30,51 @@
       Firebase();
       function Firebase(){
         database = firebase.database();
-        database.ref('/').set({
+        database.ref('/').update({
             playerCount : 0,
             player1 : null,
             player2 : null,
+            bandagepos : [[670, 415], [1008, 391], [922, 542]],
             gamestate : 0 
         })
-        database.ref('player1').set({
+        database.ref('player1').update({
             gamestate : 0,
             health : 6
         })
 
 
 
-        database.ref('player1/tank/position').set({
+        database.ref('player1/tank/position').update({
           x : 316,
           y : 432
         })
-        database.ref('player1/tank/cannonball/position').set({
+        database.ref('player1/tank/cannonball/position').update({
             x : 10,
             y: 2
         })
-        database.ref('player1/tank/turret').set({
+        database.ref('player1/tank/turret').update({
             angle : 2
         })
+
+        
         
         
 
 
-        database.ref('player2').set({
+        database.ref('player2').update({
             gamestate : 0,
             health : 6
         })
 
-        database.ref('player2/tank/position').set({
+        database.ref('player2/tank/position').update({
           x : 500,
           y : 500
         })        
-        database.ref('player2/tank/cannonball/position').set({
+        database.ref('player2/tank/cannonball/position').update({
             x : 10,
             y : 2
         })
-        database.ref('player2/tank/turret').set({
+        database.ref('player2/tank/turret').update({
             angle : -2
         })
     }      

@@ -1,5 +1,7 @@
 class Game {
-    constructor(){}
+    constructor(){
+        this.rematch = 0;
+    }
     gameState(){
         
         
@@ -34,12 +36,42 @@ class Game {
         var win = createElement('h1')
         win.html("you Win")
         win.position(displayWidth/2,displayHeight/2)
+        var reaload = createButton('play again')
+        reaload.position(851, 629)
+        battlestate = 0;
+        reaload.mousePressed(()=>{
+            win.hide();
+            reaload.hide();
+            wait.display();
+            Firebase();
+            gamesetup();
+            database.ref('player' + player.index  ).update({
+                gamestate : 2
+            })
+            
+            
+        })
     }
 
     loseGame(){
         var lose = createElement('h1')
         lose.html("you lose")
         lose.position(displayWidth/2,displayHeight/2)
+        var reaload = createButton('play again')
+        reaload.position(851, 629);
+        reaload.mousePressed(()=>{
+            lose.hide();
+            reaload.hide();
+            wait.display();
+            Firebase();
+            gamesetup();
+            database.ref('player' + player.index  ).update({
+                gamestate : 2
+            })
+            
+        })
     }
+
+   
         
     }
