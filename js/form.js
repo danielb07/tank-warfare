@@ -27,10 +27,21 @@ class Form {
                 var playerCount = data.val() + 1;
                 player.index = playerCount;
 
-                database.ref('player' + player.index + '/health').once("value", (data)=>{
-                    player.health = data.val();
-                })
-                        
+                if (player.index === 1){
+                    database.ref('player1/health').once("value", (data)=>{
+                        player.health = data.val();
+                    })
+                    database.ref('player2/enemyhealth').once("value", (data)=>{
+                        player.enemyhealth = data.val();
+                    })
+                } else if (player.index === 2){
+                    database.ref('player2/health').once("value", (data)=>{
+                        player.health = data.val();
+                    })
+                    database.ref('player1/enemyhealth').once("value", (data)=>{
+                        player.enemyhealth = data.val();
+                    })
+                }
                 
                 database.ref('player' + player.index).update({
                     name : name,

@@ -7,7 +7,8 @@ class Health {
     display(){
         fill(250, 0,10);
         noStroke();
-        ellispeMode(CENTER);
-        ellipse(this.x, this.y, 20,50);
+        ellipseMode(CENTER);
+        image(heartImage,this.x, this.y);
+        heartImage.resize(80,40)
     }
 }

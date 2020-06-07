@@ -11,15 +11,18 @@ let position
 let game;
 let wait;
 let player;
+let  heartImage, enemyhealthImg;
 let battlestate
-let hearts = [];
+let enemyHearts = [];
+let Hearts = [];
 
 
-// preload = () =>{
+preload = () =>{
+    enemyhealthImg = loadImage("img/enemyHealth.png")
+    heartImage = loadImage("img/Health.png")
+}
 
-// }
-
- function setup(){
+  setup = () =>{
      
     database = firebase.database();
     createCanvas(displayWidth,displayHeight);
@@ -35,7 +38,6 @@ let hearts = [];
         if (playercount < 2){
             var form = new Form();
             form.display();
-            //          
         }
     });
     game.gameState();
@@ -72,13 +74,18 @@ let hearts = [];
                         tankturretAngleRef = database.ref('player1/tank/turret/angle')
                         tankturretAngleRef.on("value", tankturretAngle)
                         
-                        healthCheckRef = database.ref('player1/health')
-                        healthCheckRef.on("value",healthStatus)
+                       
 
                         enemycannonPositionRef = database.ref('player2/tank/cannonball/position');
                         enemycannonPositionRef.on("value", enemycannonBallMovement);                    
                         enemyturretAngleRef = database.ref('player2/tank/turret/angle')
-                        enemyturretAngleRef.on("value", emenyturretAngle)           
+                        enemyturretAngleRef.on("value", emenyturretAngle)          
+
+                        var playerheathStatusRef = database.ref('player1/health')
+                        playerheathStatusRef.on("value", playerhealthStatus)
+
+                        var enemyhealthStatusRef = database.ref('player2/health')
+                        enemyhealthStatusRef.on("value", enemyhealthStatus)
 
                     } else if(player.index === 2){
                         
@@ -96,15 +103,22 @@ let hearts = [];
                     
                         tankturretAngleRef = database.ref('player2/tank/turret/angle')
                         tankturretAngleRef.on("value", tankturretAngle);
+                          
+                            
                         
-                        healthCheckRef = database.ref('player2/health')
-                        healthCheckRef.on("value",healthStatus)
 
                         enemycannonPositionRef = database.ref('player1/tank/cannonball/position');
                         enemycannonPositionRef.on("value", enemycannonBallMovement);                    
                         enemyturretAngleRef = database.ref('player1/tank/turret/angle')
                         enemyturretAngleRef.on("value", emenyturretAngle)
+
+                        var playerhealthStatusRef = database.ref('player2/health')
+                        playerhealthStatusRef.on("value", playerhealthStatus)
+
+                        var enemyhealthStatusRef = database.ref('player1/health')
+                        enemyhealthStatusRef.on("value", enemyhealthStatus)
                     }
+                    
                     wait.hide();
                 }
             })
@@ -118,8 +132,22 @@ let hearts = [];
     tankTurret = new Turret();
     enemyTurret = new Turret();
     tankCannonBall = new CannonBall();
-    enemyCannonBall = new CannonBall();
-    
+    enemyCannonBall = new CannonBall();1008, 151
+    enemyHearts.push(new ENEMYhealth(425, 151))
+    enemyHearts.push(new ENEMYhealth(505, 151))
+    enemyHearts.push(new ENEMYhealth(585, 151))
+    enemyHearts.push(new ENEMYhealth(685, 151))
+    enemyHearts.push(new ENEMYhealth(765, 151))
+    enemyHearts.push(new ENEMYhealth(845, 151))
+
+    Hearts.push(new Health(425, 859))
+    Hearts.push(new Health(505, 859))
+    Hearts.push(new Health(585, 859))
+    Hearts.push(new Health(685, 859))
+    Hearts.push(new Health(765, 859))
+    Hearts.push(new Health(845, 859))
+
+   
 }
 
 draw = () => {
@@ -148,7 +176,13 @@ gamePlay = () => {
     tankCannonBall.display();
     tankCannonBall.bounceOff();
 
-    for(var i=0; i< health.length; i++){
+    for(var i=0; i< player.enemyhealth; i++){
+        enemyHearts[i].display();
+        
+    }
+
+    for(var i=0; i< player.health; i++){
+        Hearts[i].display();
         
     }
 
@@ -165,13 +199,7 @@ gamePlay = () => {
     enemy.display();
     enemyCannonBall.display();
 
-    
-
     shake();
-    // enemy.updateMovement();
-    // enemy.collision();
-
-    
 
 }
 
@@ -195,27 +223,31 @@ writeTankPosition = (x,y) =>{
     tank.y = position.y;
 }
 
-healthLoss = (health) =>{
-    database.ref('player' + player.index).update({
-        health : player.health - health
-    })
-    
-}
-
-healthStatus = (data) =>{
-    var health = data.val();
-    player.health = health;
-    if(player.health === 0){
-
-        battlestate = 3
-
-        database.ref('/').update({
-            gamestate : 3
+healthLoss = (h) =>{
+    if(player.index === 1){ 
+        database.ref('player2').update({
+            health : player.enemyhealth - h
+        })
+    }else if(player.index === 2){   
+        database.ref('player1' ).update({
+            health : player.enemyhealth - h
         })
     }
 }
 
- enemyMovement = (data) =>{
+enemyhealthStatus = (data) => {
+     var health = data.val();
+     player.enemyhealth = health;
+}
+
+playerhealthStatus = (data) => {
+    var health = data.val();
+    player.health = health;
+}
+
+
+
+enemyMovement = (data) =>{
     var position = data.val();
     enemy.x = position.x;
     enemy.y = position.y;
@@ -258,28 +290,11 @@ emenyturretAngle = (data) =>{
 }
 
 shake = () =>{
-    // console.log("start");
-    
-    // console.log(tankCannonBall.x)
-    // console.log(enemy.x)
-    // console.log(enemy.w/2)
-    // console.log(tankCannonBall.y)
-    // console.log(enemy.y)
-    // console.log(enemy.h/2)
-    // console.log("end");
-    
-    
-    
-    
     if(tankCannonBall.x > enemy.x - enemy.r/2 && tankCannonBall.x < enemy.x + enemy.r/2 && tankCannonBall.y > enemy.y - enemy.r/2 && tankCannonBall.y < enemy.y + enemy.r/2){        
         healthLoss(1);
-        console.log(player.health);
-        
-        
         tankCannonBall.distance = 250
         writeCannonBallPosition(displayWidth+20, displayHeight/2);
     }
-
 }
 
  
