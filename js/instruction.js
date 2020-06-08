@@ -115,14 +115,5 @@ class Instruction {
             })
         })
     }
-    waiting(){
-        var Wait = createElement('h2');
-        Wait.html('get ready soldier')
-        Wait.position(724, 376)
-        var waiting = createElement('h3');
-        waiting.html('waiting for the enemy to comence the war')
-        waiting.position(633, 416);
-        var img = createImage("img/waiting.gif");
-        img.position(782, 550)
-    }
+    
 }

@@ -10,6 +10,7 @@ let tankTurret;
 let enemyTurret;
 let position
 let bandageImg
+let waitGif
 let game;
 let wait;
 // let _1img
@@ -27,6 +28,7 @@ preload = () =>{
     enemyhealthImg = loadImage("img/enemyHealth.png");
     heartImage = loadImage("img/Health.png");
     bandageImg = loadImage("img/bandage.png");
+    waitGif = loadImage("img/waiting.gif")
     // _1img = loadImage("img/1.png");
 }
 
@@ -73,12 +75,12 @@ preload = () =>{
     tankCannonBall = new CannonBall();
     enemyCannonBall = new CannonBall();
     
-    enemyHearts.push(new ENEMYhealth(425, 151))
-    enemyHearts.push(new ENEMYhealth(505, 151))
-    enemyHearts.push(new ENEMYhealth(585, 151))
-    enemyHearts.push(new ENEMYhealth(685, 151))
-    enemyHearts.push(new ENEMYhealth(765, 151))
-    enemyHearts.push(new ENEMYhealth(845, 151))
+    enemyHearts.push(new ENEMYhealth(425, 131))
+    enemyHearts.push(new ENEMYhealth(505, 131))
+    enemyHearts.push(new ENEMYhealth(585, 131))
+    enemyHearts.push(new ENEMYhealth(685, 131))
+    enemyHearts.push(new ENEMYhealth(765, 131))
+    enemyHearts.push(new ENEMYhealth(845, 131))
 
     Hearts.push(new Health(425, 859))
     Hearts.push(new Health(505, 859))

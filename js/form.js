@@ -9,8 +9,8 @@ class Form {
 
         
 
-        var Name = createInput('Name')
-        var button = createButton('continue')
+        var Name = createInput('Name');
+        var button = createButton('continue');
         // var ready = createElement('h3');
 
         Name.position(729, displayHeight/2);
