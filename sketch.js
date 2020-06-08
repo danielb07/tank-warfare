@@ -12,6 +12,7 @@ let position
 let bandageImg
 let game;
 let wait;
+// let _1img
 // 
 let bandagePos;
 
@@ -23,9 +24,10 @@ let Hearts = [];
 
 
 preload = () =>{
-    enemyhealthImg = loadImage("img/enemyHealth.png")
-    heartImage = loadImage("img/Health.png")
-    bandageImg = loadImage("img/bandage.png")
+    enemyhealthImg = loadImage("img/enemyHealth.png");
+    heartImage = loadImage("img/Health.png");
+    bandageImg = loadImage("img/bandage.png");
+    // _1img = loadImage("img/1.png");
 }
 
   setup = () =>{

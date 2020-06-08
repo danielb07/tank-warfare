@@ -2,9 +2,12 @@ class Form {
     constructor(){}
     display() {
 
-        var heading = createElement('h2');
-        heading.html("Tank-warfare" );
+        var heading = createDiv('Tank warfar');
         heading.position(729, displayHeight/2 - 90);
+        heading.style('font-size', '48px');
+        heading.style('color', '#cab772');
+
+        
 
         var Name = createInput('Name')
         var button = createButton('continue')
@@ -13,12 +16,28 @@ class Form {
         Name.position(729, displayHeight/2);
         button.position(774, displayHeight/2 + 40);
 
+         var _1 = createImg("img/1.png")
+         _1.position(1110, 635);
+
+         var _2 = createImg("img/2.png")
+         _2.position(66, 155);
+
+         var _3 = createImg("img/3.png")
+         _3.position(247, 635);
+
+         var _4 = createImg("img/4.png")
+         _4.position(1201, 198)
+
         
         
         button.mousePressed(()=>{
             Name.hide();
             button.hide(); 
             heading.hide();
+            _1.hide();
+            _2.hide();
+            _3.hide();
+            _4.hide();
 
             var playerCountRef = database.ref('playerCount');
             var name = Name.value();
