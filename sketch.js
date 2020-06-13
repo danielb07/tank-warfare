@@ -29,6 +29,8 @@ preload = () =>{
     heartImage = loadImage("img/Health.png");
     bandageImg = loadImage("img/bandage.png");
     waitGif = loadImage("img/waiting.gif")
+    HwallImg = loadImage("img/wall-horizonal.png")
+    VwallImg = loadImage("img/wall-vertical.png")
     // _1img = loadImage("img/1.png");
 }
 
@@ -75,19 +77,19 @@ preload = () =>{
     tankCannonBall = new CannonBall();
     enemyCannonBall = new CannonBall();
     
-    enemyHearts.push(new ENEMYhealth(425, 131))
-    enemyHearts.push(new ENEMYhealth(505, 131))
-    enemyHearts.push(new ENEMYhealth(585, 131))
-    enemyHearts.push(new ENEMYhealth(685, 131))
-    enemyHearts.push(new ENEMYhealth(765, 131))
-    enemyHearts.push(new ENEMYhealth(845, 131))
+    enemyHearts.push(new ENEMYhealth(425, 9))
+    enemyHearts.push(new ENEMYhealth(505, 9))
+    enemyHearts.push(new ENEMYhealth(585, 9))
+    enemyHearts.push(new ENEMYhealth(685, 9))
+    enemyHearts.push(new ENEMYhealth(765, 9))
+    enemyHearts.push(new ENEMYhealth(845,   9))
 
-    Hearts.push(new Health(425, 859))
-    Hearts.push(new Health(505, 859))
-    Hearts.push(new Health(585, 859))
-    Hearts.push(new Health(685, 859))
-    Hearts.push(new Health(765, 859))
-    Hearts.push(new Health(845, 859))
+    Hearts.push(new Health(425, 766))
+    Hearts.push(new Health(505, 766))
+    Hearts.push(new Health(585, 766))
+    Hearts.push(new Health(685, 766))
+    Hearts.push(new Health(765, 766))
+    Hearts.push(new Health(845, 766))
 
    
 }
@@ -95,6 +97,7 @@ preload = () =>{
 draw = () => {
 
     background('#645F55');
+    
     
    
     
@@ -154,7 +157,9 @@ gamePlay = () => {
 }
 
  mousePressed = () =>{
-   console.log(mouseX + ", " + mouseY);
+//    console.log(mouseX + ", " + mouseY);
+   console.log(displayWidth + ", " + displayHeight);
+   console.log(displayWidth-248);
    
 }
 
@@ -348,10 +353,10 @@ gamesetup = () =>{
                     if(player.index === 1){
                         
                         
-                        tank = new Tank(52, 864,40,"blue");
+                        tank = new Tank(138, 590,40,"blue");
                         
                         
-                        enemy = new Tank(1142, 276,40, "#B80909")
+                        enemy = new Tank(1458, 198,40, "#B80909")
                         
                         tankPositionRef = database.ref('player1/tank/position');
                         tankPositionRef.on("value", tankMovement);
@@ -378,9 +383,9 @@ gamesetup = () =>{
 
                     } else if(player.index === 2){
                         
-                        tank = new Tank(1142, 276,40, "#0924B8")
+                        tank = new Tank(1458, 198,40, "#0924B8")
                         
-                        enemy = new Tank(52, 864,40,"#B80909")
+                        enemy = new Tank(138, 590,40,"#B80909")
                        
                         tankPositionRef = database.ref('player2/tank/position');
                         tankPositionRef.on("value", tankMovement);
