@@ -1,7 +1,7 @@
 let enemyPositionRef, tankPositionRef, cannonPositionRef, turretAngleRef,gamestateRef, database;
 let bg
 
-var tankCannonBall, enemyCannonBall;
+var tankCannonBall, enemyCannonBall,tankImg;
 let bandage;
 var tank, enemy;
 let tanks = [];
@@ -31,13 +31,15 @@ preload = () =>{
     waitGif = loadImage("img/waiting.gif")
     HwallImg = loadImage("img/wall-horizonal.png")
     VwallImg = loadImage("img/wall-vertical.png")
+    tankImg = loadImage("img/tank-body.png")
+    turretImg = loadImage("img/turret.png")
     // _1img = loadImage("img/1.png");
 }
 
   setup = () =>{
      
     database = firebase.database();
-    createCanvas(displayWidth,displayHeight);
+    createCanvas(1528,784);
 
     
     game = new Game();
@@ -74,6 +76,8 @@ preload = () =>{
     
     tankTurret = new Turret();
     enemyTurret = new Turret();
+    console.log(enemyTurret);
+    
     tankCannonBall = new CannonBall();
     enemyCannonBall = new CannonBall();
     
@@ -82,14 +86,14 @@ preload = () =>{
     enemyHearts.push(new ENEMYhealth(585, 9))
     enemyHearts.push(new ENEMYhealth(685, 9))
     enemyHearts.push(new ENEMYhealth(765, 9))
-    enemyHearts.push(new ENEMYhealth(845,   9))
+    enemyHearts.push(new ENEMYhealth(845, 9))
 
-    Hearts.push(new Health(425, 766))
-    Hearts.push(new Health(505, 766))
-    Hearts.push(new Health(585, 766))
-    Hearts.push(new Health(685, 766))
-    Hearts.push(new Health(765, 766))
-    Hearts.push(new Health(845, 766))
+    Hearts.push(new Health(425,  656))
+    Hearts.push(new Health(505, 656))
+    Hearts.push(new Health(585, 656))
+    Hearts.push(new Health(685, 656))
+    Hearts.push(new Health(765, 656))
+    Hearts.push(new Health(845, 656))
 
    
 }
@@ -115,6 +119,8 @@ gamePlay = () => {
     walls.display();
     tankTurret.x = tank.x;
     tankTurret.y = tank.y;
+    enemyTurret.x = enemy.x;
+    enemyTurret.y = enemy.y;
     if(keyIsDown(32) && (Number.isNaN(tankCannonBall.distance))){
         tank.fire();
     }
@@ -157,9 +163,11 @@ gamePlay = () => {
 }
 
  mousePressed = () =>{
-//    console.log(mouseX + ", " + mouseY);
-   console.log(displayWidth + ", " + displayHeight);
-   console.log(displayWidth-248);
+   console.log(mouseX + ", " + mouseY); 
+//    console.log(displayWidth + ", " +displayHeight);
+   
+   
+   
    
 }
 
@@ -353,10 +361,10 @@ gamesetup = () =>{
                     if(player.index === 1){
                         
                         
-                        tank = new Tank(138, 590,40,"blue");
+                        tank = new Tank(340, 560,40);
                         
                         
-                        enemy = new Tank(1458, 198,40, "#B80909")
+                        enemy = new Tank(1168, 190,40)
                         
                         tankPositionRef = database.ref('player1/tank/position');
                         tankPositionRef.on("value", tankMovement);
@@ -383,9 +391,9 @@ gamesetup = () =>{
 
                     } else if(player.index === 2){
                         
-                        tank = new Tank(1458, 198,40, "#0924B8")
+                        tank = new Tank(1168, 190,40)
                         
-                        enemy = new Tank(138, 590,40,"#B80909")
+                        enemy = new Tank(340, 560,40)
                        
                         tankPositionRef = database.ref('player2/tank/position');
                         tankPositionRef.on("value", tankMovement);

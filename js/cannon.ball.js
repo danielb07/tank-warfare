@@ -22,10 +22,10 @@ class CannonBall {
         // writeCannonBallPosition(displayWidth+20, displayHeight/2);
         
         this.distance += 2
-        if(this.distance<250){
+        if(this.distance<550){
             writeCannonBallPosition(this.xdir,this.ydir)
         }
-        if(this.distance > 250){
+        if(this.distance > 550){
             this.distance = undefined;
             // this.x = displayWidth+20;
             // this.y = displayHeight/2;
@@ -56,10 +56,15 @@ class CannonBall {
                 else if(this.x === (wall.x + (wall.w/2)) && this.y > (wall.y-(wall.h/2)) && this.y < (wall.y+(wall.h/2))  ){
                     this.xdir = -(xdir);
                 }
+                 //this.x === (wall.x - (wall.w/2)) && this.y > (wall.y-(wall.h/2)) && this.y < (wall.y+(wall.h/2)) 
                 if(this.y === (wall.y - (wall.h/2)) && this.x > (wall.x-(wall.w/2)) && this.x < (wall.x+(wall.w/2))  ){
+                    console.log("it should be working if this message has arrived in time if not then why");
+                    
                     this.ydir = -(ydir)
                 }
+                      //this.x === (wall.x + (wall.w/2)) && this.y > (wall.y-(wall.h/2)) && this.y < (wall.y+(wall.h/2) 
                 else if(this.y === (wall.y + (wall.h/2)) && this.x > (wall.x-(wall.w/2)) && this.x < (wall.x+(wall.w/2))  ){
+                    console.log("it is working");
                     
                     this.ydir = -(ydir);
                 }
@@ -92,7 +97,7 @@ class CannonBall {
                 // ("bottom & left");
             }
             else if(xdir < 0 && ydir < 0){
-                if(this.y === (wall.y + (wall.h/2) + 1) && this.x > wall.x -(wall.w/2) && this.x < wall.x +(wall.w/2)){
+                if(this.y === (wall.y + (wall.h/2) ) && this.x > wall.x -(wall.w/2) && this.x < wall.x +(wall.w/2)){
                     this.ydir = -(ydir)
                     
                 } else if(this.x === wall.x +(wall.w/2) && this.y > (wall.y-(wall.h/2)) && this.y < (wall.y+(wall.h/2))){

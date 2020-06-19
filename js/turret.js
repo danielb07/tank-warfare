@@ -16,6 +16,8 @@ class Turret {
       translate(this.x,this.y);
       rotate(PI/this.angle);
       rect(11,1,this.w,this.h)
+      // image(turretImg,11,1);
+      // turretImg.resize(this.w, this.h)
       pop();
     }
   

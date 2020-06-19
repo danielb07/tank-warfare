@@ -33,8 +33,9 @@
         database.ref('/').update({
             playerCount : 0,
             player1 : null,
-            player2 : null,
-            bandagepos : [[670, 415], [1008, 391], [922, 542]],
+            player2 : null,                                                                                                 
+//                                      740, 571                                                                                       ||
+            bandagepos : [[656, 385], [770, 393],[487, 189],[1001, 556],[740, 571],[721, 203],[1012, 447],[485, 308],[1631, 340],[1631, 340],[1631, 340],[1631, 340]],
             gamestate : 0 
         })
         database.ref('player1').update({
@@ -45,8 +46,8 @@
 
 
         database.ref('player1/tank/position').update({
-          x : 138,
-          y :  590
+          x : 340, 
+          y :  566
         })
         database.ref('player1/tank/cannonball/position').update({
             x : 10,
@@ -67,8 +68,8 @@
         })
 
         database.ref('player2/tank/position').update({
-          x : 1458,
-          y : 198
+          x : 1168, 
+          y : 190
         })        
         database.ref('player2/tank/cannonball/position').update({
             x : 10,

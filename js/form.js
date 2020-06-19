@@ -16,17 +16,21 @@ class Form {
         Name.position(729, displayHeight/2);
         button.position(774, displayHeight/2 + 40);
 
+        // bottom right
          var _1 = createImg("img/1.png")
-         _1.position(1110, 635);
+         _1.position(1110, 513);
 
+        //top left 
          var _2 = createImg("img/2.png")
-         _2.position(66, 155);
+         _2.position(66, 91);
 
+        // bottom left
          var _3 = createImg("img/3.png")
-         _3.position(247, 635);
+         _3.position(247, 513);
 
+        // top-right
          var _4 = createImg("img/4.png")
-         _4.position(1201, 198)
+         _4.position(1201, 91)
 
         
         

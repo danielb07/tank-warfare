@@ -4,19 +4,30 @@ class Walls {
         // border walls
 
         // right wall 
-        this.walls.push(new Wall(displayWidth-248, displayHeight/2-55,12,displayHeight-350))
+        this.walls.push(new Wall(1292, 380,12,452))
         // left wall
-        this.walls.push(new Wall(displayWidth%displayWidth + 248, displayHeight/2-55,12,displayHeight-350))
+        this.walls.push(new Wall(240, 380,12,452))
         // bottom wall
-        this.walls.push(new Wall(displayWidth/2, displayHeight-232,displayWidth-483,12))
-        this.walls.push(new Wall(displayWidth/2, displayWidth%displayWidth +116,displayWidth-483,12))
+        this.walls.push(new Wall(768, 600,1064,12))
+        // top wall
+        this.walls.push(new Wall(768, 156,1064,12))
         
         // // in-game walls
-        // this.walls.push(new Wall(64, 502,300, 20))  
-        // this.walls.push(new Wall(1244, 272,300, 20))  
-        this.walls.push(new Wall(displayWidth/4,displayHeight/2,20,20))
-        this.walls.push(new Wall(displayWidth/2.75,displayHeight/2,625,20))
-        this.walls.push(new Wall(displayWidth/2,displayHeight/2,20,20))
+            // this.walls.push(new Wall(64, 502,320, 20))  
+            // this.walls.push(new Wall(1244, 272,320, 20)) 
+
+        this.walls.push(new Wall(344,492,200,32))
+        this.walls.push(new Wall(560 ,496,32,200))
+
+        this.walls.push(new Wall(724,392,32,200))
+        this.walls.push(new Wall(492,244,200,32))
+        
+
+
+        this.walls.push(new Wall(1184, 264,200,32))
+        this.walls.push(new Wall(940, 252,32,200))
+        this.walls.push(new Wall(1004, 508,200,32))
+
 
     }
     display(){
