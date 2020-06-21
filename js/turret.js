@@ -24,9 +24,11 @@ class Turret {
   
   aiming(){
     
-      if(keyIsDown(81)  ){
+      if(keyIsDown(81)){
+
         rightAngle(-1);
-      }
+       
+      } 
     
       else if(keyIsDown(67)  ){
         rightAngle(4);
