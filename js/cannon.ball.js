@@ -58,13 +58,11 @@ class CannonBall {
                 }
                  //this.x === (wall.x - (wall.w/2)) && this.y > (wall.y-(wall.h/2)) && this.y < (wall.y+(wall.h/2)) 
                 if(this.y === (wall.y - (wall.h/2)) && this.x > (wall.x-(wall.w/2)) && this.x < (wall.x+(wall.w/2))  ){
-                    console.log("it should be working if this message has arrived in time if not then why");
                     
                     this.ydir = -(ydir)
                 }
                       //this.x === (wall.x + (wall.w/2)) && this.y > (wall.y-(wall.h/2)) && this.y < (wall.y+(wall.h/2) 
                 else if(this.y === (wall.y + (wall.h/2)) && this.x > (wall.x-(wall.w/2)) && this.x < (wall.x+(wall.w/2))  ){
-                    console.log("it is working");
                     
                     this.ydir = -(ydir);
                 }

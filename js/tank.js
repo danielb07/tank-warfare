@@ -23,6 +23,8 @@ class Tank {
         if(tankTurret.angle === -1){
             tankCannonBall.x = tankTurret.x+4;
             tankCannonBall.y = tankTurret.y;
+            
+            
             tankCannonBall.xdir = -2;
             tankCannonBall.ydir = 0;
             
@@ -40,8 +42,9 @@ class Tank {
         }
 
         else if(tankTurret.angle === 2){
+           
             tankCannonBall.x = tankTurret.x;
-            tankCannonBall.y = tankTurret.y+4.5;
+            tankCannonBall.y = tankTurret.y+4;
             tankCannonBall.xdir = 0;
             tankCannonBall.ydir = 2;
             
@@ -49,8 +52,9 @@ class Tank {
         }
 
         else if(tankTurret.angle === -2){
+            
             tankCannonBall.x = tankTurret.x;
-            tankCannonBall.y = tankTurret.y+4.5;
+            tankCannonBall.y = tankTurret.y+4;
             tankCannonBall.xdir = 0;
             tankCannonBall.ydir = -2;
             
