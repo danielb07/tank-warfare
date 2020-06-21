@@ -81,19 +81,19 @@ preload = () =>{
     tankCannonBall = new CannonBall();
     enemyCannonBall = new CannonBall();
     
-    enemyHearts.push(new ENEMYhealth(425, 9))
-    enemyHearts.push(new ENEMYhealth(505, 9))
-    enemyHearts.push(new ENEMYhealth(585, 9))
-    enemyHearts.push(new ENEMYhealth(685, 9))
-    enemyHearts.push(new ENEMYhealth(765, 9))
-    enemyHearts.push(new ENEMYhealth(845, 9))
+    enemyHearts.push(new ENEMYhealth(425, 81))
+    enemyHearts.push(new ENEMYhealth(505, 81))
+    enemyHearts.push(new ENEMYhealth(585, 81))
+    enemyHearts.push(new ENEMYhealth(685, 81))
+    enemyHearts.push(new ENEMYhealth(765, 81))
+    enemyHearts.push(new ENEMYhealth(845, 81))
 
-    Hearts.push(new Health(425,  656))
-    Hearts.push(new Health(505, 656))
-    Hearts.push(new Health(585, 656))
-    Hearts.push(new Health(685, 656))
-    Hearts.push(new Health(765, 656))
-    Hearts.push(new Health(845, 656))
+    Hearts.push(new Health(425,  620))
+    Hearts.push(new Health(505, 620))
+    Hearts.push(new Health(585, 620))
+    Hearts.push(new Health(685, 620))
+    Hearts.push(new Health(765, 620))
+    Hearts.push(new Health(845, 620))
 
    
 }
@@ -216,7 +216,7 @@ enemyhealthStatus = (data) => {
      player.enemyhealth = health;
      if(player.enemyhealth === 0){
          battlestate = 3;
-        console.log(" game over: you win");
+        
         game.winGame()
         
             
@@ -230,7 +230,7 @@ playerhealthStatus = (data) => {
     player.health = health;
     if(player.health === 0){
         battlestate = 3;
-        console.log(" game over: you lose");
+        
         game.loseGame();
         
         

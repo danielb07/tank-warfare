@@ -6,7 +6,7 @@ class ENEMYhealth {
 
     display(){
         image(enemyhealthImg, this.x, this.y);
-        enemyhealthImg.resize(40,40)
+        enemyhealthImg.resize(60,50)
     }
     
 }
