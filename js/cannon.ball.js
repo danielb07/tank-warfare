@@ -29,7 +29,7 @@ class CannonBall {
             this.distance = undefined;
             // this.x = displayWidth+20;
             // this.y = displayHeight/2;
-            writeCannonBallPosition(-30, displayHeight/2);
+            writeCannonBallPosition(2000, 2000);
             this.xdir = 0;
             this.ydir = 0;
         }

@@ -39,7 +39,7 @@ preload = () =>{
   setup = () =>{
      
     database = firebase.database();
-    createCanvas(1528,784);
+    createCanvas(1754,900);
 
     
     game = new Game();
@@ -361,10 +361,10 @@ gamesetup = () =>{
                     if(player.index === 1){
                         
                         
-                        tank = new Tank(340, 560,40);
+                        tank = new Tank(340, 560,40,"#0000ff");
                         
                         
-                        enemy = new Tank(1168, 190,40)
+                        enemy = new Tank(1168, 190,40,"#ff0000")
                         
                         tankPositionRef = database.ref('player1/tank/position');
                         tankPositionRef.on("value", tankMovement);
@@ -391,9 +391,9 @@ gamesetup = () =>{
 
                     } else if(player.index === 2){
                         
-                        tank = new Tank(1168, 190,40)
+                        tank = new Tank(1168, 190,40,"#0000ff")
                         
-                        enemy = new Tank(340, 560,40)
+                        enemy = new Tank(340, 560,40,"#ff0000")
                        
                         tankPositionRef = database.ref('player2/tank/position');
                         tankPositionRef.on("value", tankMovement);

@@ -4,7 +4,7 @@ class Tank {
     LEFTKEY = 65;
     RIGHTKEY = 68
 
-    constructor(x,y,r){
+    constructor(x,y,r,i){
         this.x = x;
         this.y = y;
         this.r = r;
@@ -12,6 +12,7 @@ class Tank {
         this.ydir = 0;
         this.bounceOff = 1;
         this.speed = 2;
+        this.sprite = i
         
         
         
@@ -114,7 +115,7 @@ class Tank {
     display(){
         
         ellipseMode(CENTER);
-        
+        fill(this.sprite)
        ellipse(this.x,this.y,this.r);
        
     }
