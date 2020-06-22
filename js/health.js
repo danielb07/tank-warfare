@@ -9,6 +9,6 @@ class Health {
         noStroke();
         ellipseMode(CENTER);
         image(heartImage,this.x, this.y);
-        heartImage.resize(80,40)
+        heartImage.resize(60,50)
     }
 }

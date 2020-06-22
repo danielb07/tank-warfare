@@ -33,6 +33,7 @@ preload = () =>{
     VwallImg = loadImage("img/wall-vertical.png")
     tankImg = loadImage("img/tank-body.png")
     turretImg = loadImage("img/turret.png")
+    
     // _1img = loadImage("img/1.png");
 }
 
@@ -81,19 +82,19 @@ preload = () =>{
     tankCannonBall = new CannonBall();
     enemyCannonBall = new CannonBall();
     
-    enemyHearts.push(new ENEMYhealth(425, 81))
-    enemyHearts.push(new ENEMYhealth(505, 81))
-    enemyHearts.push(new ENEMYhealth(585, 81))
-    enemyHearts.push(new ENEMYhealth(685, 81))
-    enemyHearts.push(new ENEMYhealth(765, 81))
-    enemyHearts.push(new ENEMYhealth(845, 81))
+    enemyHearts.push(new ENEMYhealth(505, 100))
+    enemyHearts.push(new ENEMYhealth(585, 100))
+    enemyHearts.push(new ENEMYhealth(665, 100))
+    enemyHearts.push(new ENEMYhealth(745, 100))
+    enemyHearts.push(new ENEMYhealth(825, 100))
+    enemyHearts.push(new ENEMYhealth(905, 100))
 
-    Hearts.push(new Health(425,  620))
-    Hearts.push(new Health(505, 620))
+    Hearts.push(new Health(505,  620))
     Hearts.push(new Health(585, 620))
-    Hearts.push(new Health(685, 620))
-    Hearts.push(new Health(765, 620))
-    Hearts.push(new Health(845, 620))
+    Hearts.push(new Health(665, 620))
+    Hearts.push(new Health(745, 620))
+    Hearts.push(new Health(825, 620))
+    Hearts.push(new Health(905, 620))
 
    
 }

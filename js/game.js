@@ -29,9 +29,11 @@ class Game {
     }
     winGame(){
         var win = createElement('h1')
+        win.class('tank-warfare')
         win.html("you Win")
-        win.position(displayWidth/2,displayHeight/2)
+        win.position(819, 525)
         var reaload = createButton('play again')
+        
         reaload.position(851, 629)
         battlestate = 0;
         reaload.mousePressed(()=>{
@@ -61,25 +63,21 @@ class Game {
 
     loseGame(){
         var lose = createElement('h1')
+        lose.class('tank-warfare')
         lose.html("you lose")
-        lose.position(displayWidth/2,displayHeight/2)
+        lose.position(819, 525)
         var reaload = createButton('play again')
         reaload.position(851, 629);
         reaload.mousePressed(()=>{
             lose.hide();
             reaload.hide();
             
-            // wait.display();
-            console.log("player" + player.index);
-            
             Firebase();
             database.ref('player' + player.index).update({
                 gamestate : 0,
                 health : 6
             })
-            
-    
-    
+        
             database.ref('player' + player.index + '/tank/position').update({
               x : 340, 
               y :  566

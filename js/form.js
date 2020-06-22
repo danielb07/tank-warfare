@@ -2,23 +2,23 @@ class Form {
     constructor(){}
     display() {
 
-        var heading = createDiv('Tank warfar');
+        var heading = createDiv('Tank warfare');
         heading.position(729, displayHeight/2 - 90);
-        heading.style('font-size', '48px');
-        heading.style('color', '#cab772');
+        heading.class('tank-warfare')
 
         
 
         var Name = createInput('Name');
         var button = createButton('continue');
+        
         // var ready = createElement('h3');
 
         Name.position(729, displayHeight/2);
-        button.position(774, displayHeight/2 + 40);
+        button.position(817, 552);
 
         // bottom right
          var _1 = createImg("img/1.png")
-         _1.position(1110, 513);
+         _1.position(990, 513);
 
         //top left 
          var _2 = createImg("img/2.png")
