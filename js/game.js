@@ -26,11 +26,6 @@ class Game {
                 }
            }
        })
-
-                     
-
-         
-        
     }
     winGame(){
         var win = createElement('h1')
@@ -42,15 +37,26 @@ class Game {
         reaload.mousePressed(()=>{
             win.hide();
             reaload.hide();
-            wait.display();
-            Firebase();
-            gamesetup();
-            database.ref('player' + player.index  ).update({
-                gamestate : 2
+            console.log("player" + player.index);
+            Firebase();  
+            database.ref('player' + player.index).update({
+                gamestate : 0,
+                health : 6
             })
-            
-            
+            database.ref('player' + player.index + '/tank/position').update({
+              x : 1168, 
+              y :  190
+            })
+            database.ref('player' + player.index + '/tank/cannonball/position').update({
+                x : 2000,
+                y: 2000 
+            })
+            database.ref('player' + player.index + '/tank/turret').update({
+                angle : 2
+            })
+            location.reload();
         })
+        
     }
 
     loseGame(){
@@ -62,15 +68,38 @@ class Game {
         reaload.mousePressed(()=>{
             lose.hide();
             reaload.hide();
-            wait.display();
+            
+            // wait.display();
+            console.log("player" + player.index);
+            
             Firebase();
-            gamesetup();
-            database.ref('player' + player.index  ).update({
-                gamestate : 2
+            database.ref('player' + player.index).update({
+                gamestate : 0,
+                health : 6
             })
             
+    
+    
+            database.ref('player' + player.index + '/tank/position').update({
+              x : 340, 
+              y :  566
+            })
+            database.ref('player' + player.index + '/tank/cannonball/position').update({
+                x : 2000,
+                y: 2000 
+            })
+            database.ref('player' + player.index + '/tank/turret').update({
+                angle : 2
+            })
+
+            location.reload();
+            // gamesetup();
         })
     }
+    
+
+
+
 
    
         

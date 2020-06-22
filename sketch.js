@@ -291,60 +291,20 @@ shake = () =>{
     if(tankCannonBall.x > enemy.x - enemy.r/2 && tankCannonBall.x < enemy.x + enemy.r/2 && tankCannonBall.y > enemy.y - enemy.r/2 && tankCannonBall.y < enemy.y + enemy.r/2){        
         healthLoss(1);
         
-        tankCannonBall.distance = 250
+        tankCannonBall.distance = 550;
         writeCannonBallPosition(displayWidth+20, displayHeight/2);
     }
     
 }
 
 
-function Firebase(){
-    console.log("reset");
-    
-    
+ Firebase = () =>{
     database.ref('/').update({
         playerCount : 0,
-        player1 : null,
-        player2 : null,
+                                                                                                  
+//                                      740, 571          , 575                                                                              ||
+        bandagepos : [[656, 385], [770, 393],[487, 189],[1001, 556],[724, 499],[721, 203],[1012, 447],[485, 308],[2031, 340],[2031, 340],[2031, 340],[2031, 340]],
         gamestate : 0 
-    })
-    database.ref('player1').update({
-        gamestate : 1,
-        health : 6
-    })
-
-
-
-    database.ref('player1/tank/position').update({
-      x : 316,
-      y : 432
-    })
-    database.ref('player1/tank/cannonball/position').update({
-        x : 10,
-        y: 2
-    })
-    database.ref('player1/tank/turret').update({
-        angle : 2
-    })
-    
-    
-
-
-    database.ref('player2').update({
-        gamestate : 1,
-        health : 6
-    })
-
-    database.ref('player2/tank/position').update({
-      x : 500,
-      y : 500
-    })        
-    database.ref('player2/tank/cannonball/position').update({
-        x : 10,
-        y : 2
-    })
-    database.ref('player2/tank/turret').update({
-        angle : -2
     })
 }
 

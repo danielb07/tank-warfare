@@ -146,25 +146,25 @@ class Tank {
             if(this.x + this.r/2 > bandage.x - (bandage.s/2) && this.y + this.r/2 > bandage.y - (bandage.s/2) && this.y - this.r/2 < bandage.y + (bandage.s/2)){
                 healthGain(1);
                 database.ref('/').update({
-                    randomPos : [1615, 0]
+                    randomPos : [2000, 0]
                 })
         
             }else if(this.x - this.r/2 > bandage.x + (bandage.s/2) && this.y + this.r/2 > bandage.y - (bandage.s/2) && this.y - this.r/2 < bandage.y + (bandage.s/2)){
                 healthGain(1);
                 database.ref('/').update({
-                    randomPos : [1615, 0]
+                    randomPos : [2000, 0]
                 })
             }else if(this.y + this.r/2 > bandage.y - (bandage.s/2) && this.x + this.r/2 > bandage.x - (bandage.s/2) && this.x - this.r/2 < bandage.x + (bandage.s/2)){
                 bandage.x = 1615
                 healthGain(1);
                 database.ref('/').update({
-                    randomPos : [1615, 0]
+                    randomPos : [2000, 0]
                 })
             }else if(this.y - this.r/2 > bandage.y + (bandage.s/2) && this.x + this.r/2 > bandage.x - (bandage.s/2) && this.x - this.r/2 < bandage.x + (bandage.s/2)){
                 bandage.x = 1615
                 healthGain(1);
                 database.ref('/').update({
-                    randomPos : [1615, 0]
+                    randomPos : [2000, 0]
                 })
             }
 
