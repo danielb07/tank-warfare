@@ -14,7 +14,7 @@ class Form {
         // var ready = createElement('h3');
 
         Name.position(729, displayHeight/2);
-        button.position(817, 552);
+        button.position(817, 607);
 
         // bottom right
          var _1 = createImg("img/1.png")

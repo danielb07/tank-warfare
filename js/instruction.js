@@ -28,7 +28,7 @@ class Instruction {
         Q.class('inst');
         Q.position(544, 114);
 
-        var ex1 = createImg("img/tank-from-LEFT.png")
+        var ex1 = createImg("img/tankfromleft.png")
         ex1.position(714, 167)
 
         var E = createElement('h2');
@@ -36,7 +36,7 @@ class Instruction {
         E.class('inst');
         E.position(544, 215);
 
-        var ex2 = createImg("img/tank-from-right.png")
+        var ex2 = createImg("img/tankfromright.png")
         ex2.position(717, 268)
         
         var _2 = createElement('h2');
@@ -44,7 +44,7 @@ class Instruction {
         _2.position(544, 316);
         _2.class('inst');
 
-        var ex3 = createImg("img/tank-from-top.png")
+        var ex3 = createImg("img/tankfromtop.png")
         ex3.position(714, 374 )
         
         var X = createElement('h2');
@@ -52,7 +52,7 @@ class Instruction {
         X.class('inst');
         X.position(1044, 114);
 
-        var ex4 = createImg("img/tank-from-bottom.png")
+        var ex4 = createImg("img/tankfrombottom.png")
         ex4.position(1224, 171)
 
         var _3 = createElement('h2');
@@ -60,14 +60,14 @@ class Instruction {
         _3.class('inst');
          _3.position(1044, 390);
 
-         var ex5 = createImg("img/tank-angle1.png")
+         var ex5 = createImg("img/tankangle1.png")
         ex5.position(1224, 463)
 
         var C = createElement('h2');
         C.html("Press C to angle the turret like this");
         C.class('inst');
         C.position(1044, 548);
-        var ex6 = createImg("img/tank-angle2.png")
+        var ex6 = createImg("img/tankangle2.png")
         ex6.position(1224, 620)
 
         var Z = createElement('h2');
@@ -75,7 +75,7 @@ class Instruction {
         Z.class('inst');
         Z.position(544, 450);
 
-        var exZ = createImg("img/tank-angle-Z.png")
+        var exZ = createImg("img/tankanglez.png")
         exZ.position(712, 521)
 
         var _1 = createElement('h2');
@@ -83,7 +83,7 @@ class Instruction {
         _1.class('inst');
         _1.position(1044, 242);
 
-        var ex_1 = createImg("img/tank-angle3.png")
+        var ex_1 = createImg("img/tankangle3.png")
         ex_1.position(1224, 310);
 
         // fill("red")

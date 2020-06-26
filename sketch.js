@@ -25,13 +25,13 @@ let Hearts = [];
 
 
 preload = () =>{
-    enemyhealthImg = loadImage("img/enemyHealth.png");
-    heartImage = loadImage("img/Health.png");
+    enemyhealthImg = loadImage("img/enemyhealth.png");
+    heartImage = loadImage("img/health.png");
     bandageImg = loadImage("img/bandage.png");
     waitGif = loadImage("img/waiting.gif")
-    HwallImg = loadImage("img/wall-horizonal.png")
-    VwallImg = loadImage("img/wall-vertical.png")
-    tankImg = loadImage("img/tank-body.png")
+    HwallImg = loadImage("img/wallhorizonal.png")
+    VwallImg = loadImage("img/wallvertical.png")
+    tankImg = loadImage("img/tankbody.png")
     turretImg = loadImage("img/turret.png")
     
     // _1img = loadImage("img/1.png");
